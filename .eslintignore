@@ -1,0 +1,10 @@
+node_modules*
+config*
+.vscode*
+*.svg
+*.ico
+*.json
+.gitignore
+*.md
+*.log
+*.lock
