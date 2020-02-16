@@ -9,3 +9,5 @@
 export function WindowAlert(alertMessage: string) {
 	console.warn('window.alert("' + alertMessage + '") called');
 }
+
+export default WindowAlert;

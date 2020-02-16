@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from '../../resources/logo.svg';
-import './App.css';
+import React from "react";
+import logo from "../../resources/logo.svg";
+import Button from "@bit/mui-org.material-ui.button";
+import { makeStyles } from "@bit/mui-org.material-ui.styles";
+
+import "./App.css";
+
+const useStyles = makeStyles(theme => ({
+	button: {
+		margin: theme.spacing(1),
+	},
+	input: {
+		display: "none",
+	},
+}));
+
+function takesATrain() {
+	alert("takesATrain");
+}
+
+function findsAHouse() {
+	alert("findsAHouse");
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const classes = useStyles();
+
+	return (
+		<div className="App">
+			<header className="App-header">
+				<img src={logo} className="App-logo" alt="logo" />
+				<p>Totoro</p>
+				<Button
+					id="takesATrainBtn"
+					variant="contained"
+					color="primary"
+					size="large"
+					className={classes.button}
+					onClick={takesATrain}
+				>
+					Takes a train
+				</Button>
+				<Button
+					id="takesATrainBtn"
+					variant="contained"
+					color="primary"
+					size="large"
+					className={classes.button}
+					onClick={findsAHouse}
+				>
+					Finds a house
+				</Button>
+			</header>
+		</div>
+	);
 }
 
 export default App;
