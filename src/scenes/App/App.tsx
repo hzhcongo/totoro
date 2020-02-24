@@ -41,7 +41,7 @@ function App() {
 					Takes a train
 				</Button>
 				<Button
-					id="takesATrainBtn"
+					id="findsAHouseBtn"
 					variant="contained"
 					color="primary"
 					size="large"

@@ -1,22 +1,14 @@
-import { WindowAlert } from "../../components/__mocks__/WindowAlert";
-
-// TODO: CREATE TEST BOILERPLATE LIKE configureEnvironment()
-let spyWindowAlert: jest.SpyInstance;
-let spyError: jest.SpyInstance;
-let spyWarn: jest.SpyInstance;
+import {
+	setupTestEnvironment,
+	tearDownTestEnvironment
+} from "../../utilities/TestUtilities";
 
 beforeAll(() => {
-	spyWindowAlert = jest.spyOn(window, "alert");
-	spyError = jest.spyOn(console, "error");
-	spyWarn = jest.spyOn(console, "warn");
-
-	spyWindowAlert.mockImplementation(WindowAlert);
+	setupTestEnvironment();
 })
 
 afterAll(() => {
-	spyWindowAlert.mockRestore();
-	spyError.mockRestore();
-	spyWarn.mockRestore();
+	tearDownTestEnvironment();
 })
 
 test("should warn in console", () => {

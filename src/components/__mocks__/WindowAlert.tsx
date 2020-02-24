@@ -4,8 +4,6 @@
  *
  * @param alertMessage String alert message
  */
-// TODO: CONFIGURE A BETTER TEST ENVIRONMENT?
-// TODO: DO UP A BETTER MOCK ALERT COMPONENT?
 export function WindowAlert(alertMessage: string) {
 	console.warn('window.alert("' + alertMessage + '") called');
 }
