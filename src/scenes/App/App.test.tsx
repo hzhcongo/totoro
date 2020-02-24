@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App';
-import { ReactTestRenderer } from 'react-test-renderer';
+import renderer, { ReactTestRenderer } from 'react-test-renderer';
 import {
   createRenderer,
   setupTestEnvironment,
@@ -18,7 +18,7 @@ afterAll(() => {
 describe("Snapshots", () => {
   test("Initial render", () => {
     let testRenderer: ReactTestRenderer = createRenderer(<App />);
-    expect(testRenderer.root).toMatchSnapshot();
+    expect(testRenderer.toJSON()).toMatchSnapshot();
   });
 })
 
@@ -29,7 +29,9 @@ describe("Functional", () => {
 
     const inst = testRenderer.root;
     const button = inst.findByProps({ id: "takesATrainBtn" });
-    button.props.onClick();
+    renderer.act(() => {
+      button.props.onClick();
+    });
     expect(window.alert).toBeCalledWith("takesATrain");
   });
 
@@ -38,7 +40,9 @@ describe("Functional", () => {
 
     const inst = testRenderer.root;
     const button = inst.findByProps({ id: "findsAHouseBtn" });
-    button.props.onClick();
+    renderer.act(() => {
+      button.props.onClick();
+    });
     expect(window.alert).toBeCalledWith("takesATrain");
   });
 })

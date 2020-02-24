@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1581850104458" clover="3.2.0">
-  <project timestamp="1581850104458" name="All files">
-    <metrics statements="46" coveredstatements="0" conditionals="32" coveredconditionals="0" methods="20" coveredmethods="0" elements="98" coveredelements="0" complexity="0" loc="46" ncloc="46" packages="3" files="3" classes="3"/>
+<coverage generated="1582540390107" clover="3.2.0">
+  <project timestamp="1582540390108" name="All files">
+    <metrics statements="57" coveredstatements="16" conditionals="32" coveredconditionals="0" methods="24" coveredmethods="8" elements="113" coveredelements="24" complexity="0" loc="57" ncloc="57" packages="4" files="4" classes="4"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.tsx" path="/Users/i_zhengweik/Desktop/totoro/src/index.tsx">
@@ -11,14 +11,14 @@
       </file>
     </package>
     <package name="src.scenes.App">
-      <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="App.tsx" path="/Users/i_zhengweik/Desktop/totoro/src/scenes/App/App.tsx">
-        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.services">
@@ -64,6 +64,23 @@
         <line num="141" count="0" type="stmt"/>
         <line num="143" count="0" type="stmt"/>
         <line num="146" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utilities">
+      <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="TestUtilities.tsx" path="/Users/i_zhengweik/Desktop/totoro/src/utilities/TestUtilities.tsx">
+        <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
       </file>
     </package>
   </project>

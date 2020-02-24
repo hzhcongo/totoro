@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 import renderer, { ReactTestRenderer } from 'react-test-renderer';
 import WindowAlert from '../components/__mocks__/WindowAlert';
 
-
 let spyWindowAlert: jest.SpyInstance;
 let spyError: jest.SpyInstance;
 let spyWarn: jest.SpyInstance;
