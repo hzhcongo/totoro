@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../resources/logo.svg";
 import Button from "@bit/mui-org.material-ui.button";
 import { makeStyles } from "@bit/mui-org.material-ui.styles";
@@ -6,12 +6,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-	useHistory,
 } from "react-router-dom";
 
-import "./App.css";
-import MrtMap from "../MrtMap/MrtMap";
+import "./MrtMap.css";
+import App from "../App/App";
 
 const useStyles = makeStyles(theme => ({
 	button: {
@@ -23,24 +21,14 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function takesATrain() {
-	console.warn("takesATrain");
+	alert("takesATrain");
 }
 
 function findsAHouse() {
 	alert("findsAHouse");
 }
 
-function useAppStatus() {
-  const [isOnline, setIsOnline] = useState(null);
-
-	let path = "/MrtMap";
-	let history = useHistory();
-	history.push(path);
-
-  return isOnline;
-}
-
-function App() {
+function MrtMap() {
 	const classes = useStyles();
 
 	return (
@@ -57,7 +45,7 @@ function App() {
 						className={classes.button}
 						onClick={takesATrain}
 					>
-						<Link to="/MrtMap">About</Link>
+						Takes a train
 					</Button>
 					<Button
 						id="findsAHouseBtn"
@@ -72,12 +60,12 @@ function App() {
 				</header>
 			</div>
 			<Switch>
-				<Route path="/MrtMap">
-					<MrtMap />
+				<Route path="/">
+					<App />
 				</Route>
 			</Switch>
 		</Router>
 	);
 }
 
-export default App;
+export default MrtMap;
