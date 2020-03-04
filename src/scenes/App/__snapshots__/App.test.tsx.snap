@@ -16,7 +16,7 @@ exports[`Snapshots Initial render 1`] = `
       Totoro
     </p>
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge makeStyles-button-1"
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
       disabled={false}
       id="takesATrainBtn"
       onBlur={[Function]}
@@ -44,7 +44,7 @@ exports[`Snapshots Initial render 1`] = `
       />
     </button>
     <button
-      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge makeStyles-button-1"
+      className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-containedSizeLarge MuiButton-sizeLarge"
       disabled={false}
       id="findsAHouseBtn"
       onBlur={[Function]}

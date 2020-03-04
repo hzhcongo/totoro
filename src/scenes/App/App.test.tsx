@@ -1,29 +1,28 @@
-import React from 'react';
-import App from './App';
-import renderer, { ReactTestRenderer } from 'react-test-renderer';
+import React from "react";
+import App from "./App";
+import renderer, { ReactTestRenderer } from "react-test-renderer";
 import {
   createRenderer,
   setupTestEnvironment,
   tearDownTestEnvironment
-} from "../../utilities/TestUtilities"
+} from "../../utilities/TestUtilities";
 
 beforeAll(() => {
   setupTestEnvironment();
-})
+});
 
 afterAll(() => {
   tearDownTestEnvironment();
-})
+});
 
 describe("Snapshots", () => {
   test("Initial render", () => {
     let testRenderer: ReactTestRenderer = createRenderer(<App />);
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
-})
+});
 
 describe("Functional", () => {
-
   test("Train button clicked", () => {
     let testRenderer: ReactTestRenderer = createRenderer(<App />);
 
@@ -43,6 +42,6 @@ describe("Functional", () => {
     renderer.act(() => {
       button.props.onClick();
     });
-    expect(window.alert).toBeCalledWith("takesATrain");
+    expect(window.alert).toBeCalledWith("findsAHouse");
   });
-})
+});

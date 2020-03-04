@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.8.4",
-    "@bit/mui-org.material-ui.button": "^4.5.2",
+    "@material-ui/core": "^4.9.5",
     "@svgr/webpack": "4.3.3",
     "@types/node": "^12.12.28",
     "@types/react": "^16.9.22",
@@ -83,7 +83,7 @@
     "t-nocache": "jest --clearCache && jest",
     "t-update": "jest -u",
     "t-coverage": "jest --clearCache && jest --notify --coverage",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
+    "lint": "tsc --noEmit && eslint src/**/*.{js,ts,tsx}",
     "cd": "madge --circular --ts-config tsconfig.json --warning src/index.tsx"
   },
   "eslintConfig": {
