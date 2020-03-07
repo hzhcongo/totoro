@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/utilities/TestUtilities.tsx</title>
+    <title>Code coverage report for src/hooks/useRouter.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -18,13 +18,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/utilities</a> TestUtilities.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/hooks</a> useRouter.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -38,14 +38,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -89,11 +89,20 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -105,67 +114,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ReactElement } from "react";
-import renderer, { ReactTestRenderer } from "react-test-renderer";
-import WindowAlert from "../components/__mocks__/WindowAlert";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useParams, useLocation, useHistory, useRouteMatch } from "react-router-dom";
+import { useMemo } from "react";
+import queryString from 'query-string';
 &nbsp;
-let spyWindowAlert: jest.SpyInstance;
-let spyError: jest.SpyInstance;
-let spyWarn: jest.SpyInstance;
+export function useRouter() {
+  const params = useParams();
+  const location = useLocation();
+  const history = useHistory();
+  const match = useRouteMatch();
 &nbsp;
-/**
- * This function is to be added before all tests
- */
-export function setupTestEnvironment(): void {
-  spyWindowAlert = jest.spyOn(window, "alert");
-  spyError = jest.spyOn(console, "error");
-  spyWarn = jest.spyOn(console, "warn");
-&nbsp;
-  spyWindowAlert.mockImplementation(WindowAlert);
-}
-&nbsp;
-/**
- * This function is to be added after all tests
- */
-export function tearDownTestEnvironment(): void {
-  spyWindowAlert.mockRestore();
-  spyError.mockRestore();
-  spyWarn.mockRestore();
-}
-&nbsp;
-export function createRenderer(element: ReactElement): ReactTestRenderer {
-  let testRenderer: ReactTestRenderer = null as any;
-&nbsp;
-  renderer.act(() =&gt; {
-    testRenderer = renderer.create(element);
-  });
-&nbsp;
-  return testRenderer;
+  // Return our custom router object
+  // Memoize so that a new object is only returned if something changes
+  return useMemo(() =&gt; {
+    return {
+      // For convenience add push(), replace(), pathname at top level
+      push: history.push,
+      replace: history.replace,
+      pathname: location.pathname,
+      // Merge params and parsed query string into single "query" object
+      // so that they can be used interchangeably.
+      // Example: /:topic?sort=popular -&gt; { topic: "react", sort: "popular" }
+      query: {
+        ...queryString.parse(location.search), // Convert string to object
+        ...params
+      },
+      // Include match, location, history objects so we have
+      // access to extra React Router functionality if needed.
+      match,
+      location,
+      history
+    };
+  }, [params, match, location, history]);
 }
 &nbsp;</pre></td></tr></table></pre>
 

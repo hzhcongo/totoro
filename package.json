@@ -30,6 +30,7 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "query-string": "^6.11.1",
     "react": "^16.12.0",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.12.0",
@@ -83,7 +84,7 @@
     "t-nocache": "jest --clearCache && jest",
     "t-update": "jest -u",
     "t-coverage": "jest --clearCache && jest --notify --coverage",
-    "lint": "tsc --noEmit && eslint src/**/*.{js,ts,tsx}",
+    "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx}",
     "cd": "madge --circular --ts-config tsconfig.json --warning src/index.tsx"
   },
   "eslintConfig": {

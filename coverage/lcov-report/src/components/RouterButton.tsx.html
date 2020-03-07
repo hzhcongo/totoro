@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/utilities/TestUtilities.tsx</title>
+    <title>Code coverage report for src/components/RouterButton.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -18,13 +18,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/utilities</a> TestUtilities.tsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/components</a> RouterButton.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -38,14 +38,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -83,17 +83,7 @@
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L28'></a><a href='#L28'>28</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -104,68 +94,48 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ReactElement } from "react";
-import renderer, { ReactTestRenderer } from "react-test-renderer";
-import WindowAlert from "../components/__mocks__/WindowAlert";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
+import { Button } from "@material-ui/core";
+import { useRouter } from "../hooks/useRouter";
 &nbsp;
-let spyWindowAlert: jest.SpyInstance;
-let spyError: jest.SpyInstance;
-let spyWarn: jest.SpyInstance;
-&nbsp;
-/**
- * This function is to be added before all tests
- */
-export function setupTestEnvironment(): void {
-  spyWindowAlert = jest.spyOn(window, "alert");
-  spyError = jest.spyOn(console, "error");
-  spyWarn = jest.spyOn(console, "warn");
-&nbsp;
-  spyWindowAlert.mockImplementation(WindowAlert);
+export interface RouterButtonProps {
+  id: string;
+  route: string;
+  displayText: string;
 }
 &nbsp;
-/**
- * This function is to be added after all tests
- */
-export function tearDownTestEnvironment(): void {
-  spyWindowAlert.mockRestore();
-  spyError.mockRestore();
-  spyWarn.mockRestore();
-}
+export function RouterButton(props: RouterButtonProps) {
+  const router = useRouter();
 &nbsp;
-export function createRenderer(element: ReactElement): ReactTestRenderer {
-  let testRenderer: ReactTestRenderer = null as any;
-&nbsp;
-  renderer.act(() =&gt; {
-    testRenderer = renderer.create(element);
-  });
-&nbsp;
-  return testRenderer;
+  return (
+    &lt;Button
+      id={props.id}
+      variant="contained"
+      color="primary"
+      size="large"
+      onClick={() =&gt; {
+        router.push(props.route);
+      }}
+    &gt;
+      {props.displayText}
+    &lt;/Button&gt;
+  );
 }
 &nbsp;</pre></td></tr></table></pre>
 

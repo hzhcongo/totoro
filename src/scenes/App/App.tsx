@@ -1,68 +1,43 @@
-import React, { useState } from "react";
-import { Button } from "@material-ui/core";
+import React from "react";
 import logo from "../../resources/logo.svg";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
-  useHistory
 } from "react-router-dom";
 
 import "./App.css";
-import MrtMap from "../MrtMap/MrtMap";
+import { RouterButton } from "../../components/RouterButton";
+import { MrtMap } from "../MrtMap/MrtMap";
 
-function takesATrain() {
-  alert("takesATrain");
-}
-
-function findsAHouse() {
-  alert("findsAHouse");
-}
-
-function useAppStatus() {
-  const [isOnline] = useState(null);
-
-  let path = "/MrtMap";
-  let history = useHistory();
-  history.push(path);
-
-  return isOnline;
-}
-
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Totoro</p>
-          <Button
-            id="takesATrainBtn"
-            variant="contained"
-            color="primary"
-            size="large"
-            onClick={takesATrain}
-          >
-            Takes a train
-          </Button>
-          <Button
-            id="findsAHouseBtn"
-            variant="contained"
-            color="primary"
-            size="large"
-            onClick={findsAHouse}
-          >
-            Finds a house
-          </Button>
-        </header>
-      </div>
-      <Switch>
-        <Route path="/MrtMap">
-          <MrtMap />
-        </Route>
-      </Switch>
-    </Router>
-  );
+export class App extends React.Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p>Totoro</p>
+            <RouterButton
+              id="takesATrainBtn"
+              displayText="Takes a train"
+              route="/MrtMap"
+            />
+            <RouterButton
+              id="findsAHouseBtn"
+              displayText="Finds a house"
+              route="/MrtMap"
+            />
+          </header>
+        </div>
+        <Switch>
+          <Route path="/MrtMap">
+            <MrtMap />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
