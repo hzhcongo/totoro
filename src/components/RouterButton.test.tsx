@@ -4,7 +4,7 @@ import {
   createRenderer,
   setupTestEnvironment,
   tearDownTestEnvironment
-} from "../utilities/TestUtilities";
+} from "utilities/TestUtilities";
 import { RouterButton } from "./RouterButton";
 import { MemoryRouter } from "react-router-dom";
 

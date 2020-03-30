@@ -1,7 +1,7 @@
 import {
 	setupTestEnvironment,
 	tearDownTestEnvironment
-} from "../../utilities/TestUtilities";
+} from "utilities/TestUtilities";
 
 beforeAll(() => {
 	setupTestEnvironment();

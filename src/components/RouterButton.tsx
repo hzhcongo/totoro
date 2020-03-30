@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import { useRouter } from "../hooks/useRouter";
+import { useRouter } from "hooks/useRouter";
 
 export interface RouterButtonProps {
   id: string;

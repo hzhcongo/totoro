@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../resources/logo.svg";
+import logo from "resources/logo.svg";
 import {
   BrowserRouter,
   Switch,
@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 
 import "./App.css";
-import { RouterButton } from "../../components/RouterButton";
-import { MrtMap } from "../MrtMap/MrtMap";
+import { RouterButton } from "components/RouterButton";
+import { MrtMap } from "scenes/MrtMap/MrtMap";
 
 export class App extends Component {
   render() {

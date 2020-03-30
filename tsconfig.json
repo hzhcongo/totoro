@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "target": "es5",
     "lib": [
       "dom",
@@ -20,7 +21,6 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "src/**/*"
   ],
-  "baseUrl": "src"
 }

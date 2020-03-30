@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "../../resources/logo.svg";
+import logo from "resources/logo.svg";
 import "./MrtMap.css";
 
 export class MrtMap extends Component {
