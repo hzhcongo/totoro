@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import logo from "../../resources/logo.svg";
 import "./MrtMap.css";
 
-export class MrtMap extends React.Component {
+export class MrtMap extends Component {
 
   public render() {
     return (

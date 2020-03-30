@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import logo from "../../resources/logo.svg";
 import {
   BrowserRouter,
@@ -10,7 +10,7 @@ import "./App.css";
 import { RouterButton } from "../../components/RouterButton";
 import { MrtMap } from "../MrtMap/MrtMap";
 
-export class App extends React.Component {
+export class App extends Component {
   render() {
     return (
       <BrowserRouter>
