@@ -1,20 +1,22 @@
 {
   "name": "totoro",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "7.8.4",
-    "@material-ui/core": "^4.9.5",
+    "@material-ui/core": "^4.9.8",
     "@svgr/webpack": "4.3.3",
-    "@types/node": "^12.12.28",
-    "@types/react": "^16.9.22",
-    "@types/react-dom": "^16.9.5",
+    "@types/node": "^12.12.34",
+    "@types/react": "^16.9.31",
+    "@types/react-dom": "^16.9.6",
     "@types/react-router-dom": "^5.1.3",
+    "babel-jest": "^24.5.0",
     "babel-loader": "8.0.6",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-named-asset-import": "^0.3.6",
-    "babel-preset-react-app": "^9.1.1",
+    "babel-preset-react-app": "^9.1.2",
     "camelcase": "^5.3.1",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
+    "clean": "^4.0.2",
     "css-loader": "3.4.2",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
@@ -31,9 +33,9 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
     "query-string": "^6.11.1",
-    "react": "^16.12.0",
+    "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
-    "react-dom": "^16.12.0",
+    "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "resolve": "1.15.0",
     "resolve-url-loader": "3.1.1",
@@ -41,8 +43,9 @@
     "semver": "6.3.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.4",
+    "ts-jest": "^24.0.0",
     "ts-pnp": "1.1.5",
-    "typescript": "^3.8.2",
+    "typescript": "^3.8.3",
     "url-loader": "2.3.0",
     "webpack": "4.41.5",
     "webpack-dev-server": "3.10.2",
@@ -50,17 +53,21 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "devDependencies": {
+    "@babel/core": "7.8.4",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.1",
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
     "@types/react-test-renderer": "^16.9.2",
-    "@typescript-eslint/eslint-plugin": "^2.20.0",
-    "@typescript-eslint/parser": "^2.20.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "eslint": "^6.8.0",
-    "eslint-config-react-app": "^5.2.0",
+    "eslint-config-react-app": "^5.2.1",
     "eslint-loader": "3.0.3",
     "eslint-plugin-flowtype": "4.6.0",
     "eslint-plugin-import": "2.20.0",
@@ -70,12 +77,12 @@
     "jest": "24.9.0",
     "jest-environment-jsdom-fourteen": "1.0.1",
     "jest-resolve": "24.9.0",
-    "jest-runner": "^25.1.0",
-    "jest-watch-typeahead": "0.4.2",
-    "madge": "^3.7.0",
-    "react-dev-utils": "^10.2.0",
-    "react-test-renderer": "^16.12.0",
-    "tslint": "^6.0.0"
+    "jest-runner": "^25.2.4",
+    "jest-watch-typeahead": "^0.5.0",
+    "madge": "^3.8.0",
+    "react-dev-utils": "^10.2.1",
+    "react-test-renderer": "^16.13.1",
+    "tslint": "^6.1.1"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -85,6 +92,7 @@
     "t-update": "jest -u",
     "t-coverage": "jest --clearCache && jest --notify --coverage",
     "lint": "tsc --noEmit && eslint src/**/*.{ts,tsx}",
+    "lint-emit": "tsc && eslint src/**/*.{ts,tsx}",
     "cd": "madge --circular --ts-config tsconfig.json --warning src/index.tsx"
   },
   "eslintConfig": {
@@ -133,7 +141,17 @@
     "modulePaths": [],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "root": "<rootDir>/src",
+      "^components(.*)$": "<rootDir>/src/components$1",
+      "^resources(.*)$": "<rootDir>/src/resources$1",
+      "^images(.*)$": "<rootDir>/src/resources/images$1",
+      "^scenes(.*)$": "<rootDir>/src/scenes$1",
+      "^styles(.*)$": "<rootDir>/src/styles$1",
+      "^services(.*)$": "<rootDir>/src/services$1",
+      "^hooks(.*)$": "<rootDir>/src/hooks$1",
+      "^typings(.*)$": "<rootDir>/src/typings$1",
+      "^utilities(.*)$": "<rootDir>/src/utilities$1"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -150,11 +168,6 @@
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
     ]
   }
 }

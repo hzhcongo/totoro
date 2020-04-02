@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "resources/logo.svg";
+import logo from "images/logo.svg";
 import {
   BrowserRouter,
   Switch,
