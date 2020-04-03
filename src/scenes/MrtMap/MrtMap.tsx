@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "images/logo.svg";
 import "./MrtMap.css";
 
 export class MrtMap extends Component {
@@ -8,7 +7,6 @@ export class MrtMap extends Component {
     return (
       <div className="MrtMap">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>Totoro</p>
         </header>
       </div>

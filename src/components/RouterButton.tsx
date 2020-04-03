@@ -17,9 +17,7 @@ export function RouterButton(props: RouterButtonProps) {
       variant="contained"
       color="primary"
       size="large"
-      onClick={() => {
-        router.push(props.route);
-      }}
+      onClick={() => { router.push(props.route); }}
     >
       {props.displayText}
     </Button>
