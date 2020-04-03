@@ -1,0 +1,25 @@
+{
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "root": "./src",
+        "^components(.*)": "./src/components\\1",
+        "^hooks(.*)": "./src/hooks\\1",
+        "^services(.*)": "./src/services\\1",
+        "^typings(.*)": "./src/typings\\1",
+        "^utilities(.*)": "./src/utilities\\1",
+        "^resources(.*)": "./src/resources\\1",
+        "^images(.*)": "./src/resources/images\\1",
+        "^scenes(.*)": "./src/scenes\\1",
+        "^styles(.*)": "./src/styles\\1"
+      }
+    }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-proposal-nullish-coalescing-operator",
+    "@babel/plugin-proposal-optional-chaining"
+  ]
+}

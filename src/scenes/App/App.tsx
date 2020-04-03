@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import logo from "resources/logo.svg";
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-} from "react-router-dom";
-
-import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { RouterButton } from "components/RouterButton";
 import { MrtMap } from "scenes/MrtMap/MrtMap";
+import totoro from 'images/totoro.json';
+import { Lottie } from '@crello/react-lottie';
+import "./App.css";
 
 export class App extends Component {
   render() {
@@ -16,18 +12,27 @@ export class App extends Component {
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+            <Lottie
+              height="25vh"
+              config={{
+                animationData: totoro,
+                loop: true,
+                autoplay: true,
+              }}
+            />
             <p>Totoro</p>
-            <RouterButton
-              id="takesATrainBtn"
-              displayText="Takes a train"
-              route="/MrtMap"
-            />
-            <RouterButton
-              id="findsAHouseBtn"
-              displayText="Finds a house"
-              route="/MrtMap"
-            />
+            <div className="buttonDiv">
+              <RouterButton
+                id="takesATrainBtn"
+                displayText="Takes a train"
+                route="/MrtMap"
+              />
+              <RouterButton
+                id="findsAHouseBtn"
+                displayText="Finds a house"
+                route="/MrtMap"
+              />
+            </div>
           </header>
         </div>
         <Switch>
